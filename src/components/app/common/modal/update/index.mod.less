@@ -1,0 +1,35 @@
+.content {
+  padding-bottom: 8px;
+  margin-top: -48px;
+
+  & > section {
+    &:first-child {
+      & > div {
+        &:first-child {
+          color: @level3;
+          font-size: @font-small;
+        }
+
+        &:last-child {
+          margin-top: 16px;
+          color: @level1;
+          font-size: @font-medium;
+          line-height: @font-xl;
+        }
+      }
+    }
+
+    &:last-child {
+      margin-top: 40px;
+    }
+  }
+}
+
+.iconClose {
+  font-size: @font-base;
+  color: @level3;
+
+  &:hover {
+    color: @level2;
+  }
+}

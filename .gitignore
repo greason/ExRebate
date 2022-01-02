@@ -1,0 +1,15 @@
+node_modules
+.sass-cache
+.tmp
+.DS_Store
+.editorconfig
+.yo-rc.json
+.idea/
+npm-debug.log
+.ftpconfig
+build
+dist
+.idea/workspace.xml
+.history
+.vscode
+package-lock.json

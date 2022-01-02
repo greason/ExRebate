@@ -1,0 +1,39 @@
+.content {
+  text-align: center;
+  padding: 32px 0;
+
+  & > img {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 40px;
+  }
+
+  & > div {
+    & > h4 {
+      color: @level1;
+      font-size: 20/14rem;
+      font-weight: 500;
+      margin: 0 0 10px 0;
+    }
+
+    & > p {
+      color: @level2;
+      font-size: @font-medium;
+      line-height: 150%;
+      margin: 0;
+
+      & > b {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.iconClose {
+  font-size: @font-base;
+  color: @level3;
+
+  &:hover {
+    color: @level2;
+  }
+}

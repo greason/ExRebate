@@ -1,0 +1,106 @@
+.wallet {
+  .test {
+    position: fixed;
+    left: 0;
+    top: 100px;
+    padding: 12px;
+    background-color: #fff;
+
+    @media (max-width: @screen-xs-min) {
+      display: none;
+    }
+
+    & > a,
+    & > div {
+      margin: 12px 0;
+      display: block;
+    }
+  }
+}
+
+.BigModal {
+  .ant-modal-header {
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    .ant-modal-title {
+      font-size: 20px;
+    }
+  }
+
+  .ant-modal-body {
+    padding-top: 0;
+  }
+}
+
+.defaultBtn {
+  border-color: @border-color;
+}
+
+.pageTitle {
+  text-align: center;
+  margin-bottom: 40px;
+
+  .h1strong {
+    color: @primary-color;
+  }
+}
+
+.poolBody,
+.miningBody {
+  @height: 330px;
+
+  &:before {
+    content: "";
+    display: block;
+    background: @bg-head-color;
+    width: 100%;
+    height: @height;
+    position: relative;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  #app {
+    position: relative;
+    margin-top: -@height;
+    z-index: 2;
+  }
+}
+
+.miningBody {
+  @height: 400px;
+
+  &:before {
+    height: @height;
+  }
+
+  #app {
+    margin-top: -@height;
+  }
+
+}
+
+@media (min-width: 769px) {
+  .miningBody {
+    .page-content {
+      padding-top: 30px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .pageTitle {
+    margin-bottom: 30px;
+  }
+
+  .h1block {
+    display: block;
+    margin: 0 auto;
+
+    @media (max-width: @screen-xs-min) {
+      font-size: 20px;
+    }
+  }
+}

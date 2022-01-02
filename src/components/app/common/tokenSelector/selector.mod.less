@@ -1,0 +1,67 @@
+.content {
+  padding-top: 2px;
+  padding-bottom: 12px;
+}
+
+.panel {
+  :global {
+    .ant-list-items {
+      height: 40vh;
+      max-height: 40vh;
+      overflow: auto;
+    }
+  }
+}
+
+.empty {
+  color: @level3;
+  font-size: @font-base;
+}
+
+.input {
+  padding: 0 24px;
+}
+
+.item {
+  cursor: pointer;
+
+  &:hover {
+    background-color: @bg-min1-color;
+  }
+}
+
+.listHeader,
+.listItemBody {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 24px;
+}
+
+.listHeader {
+  & > a {
+    color: @level3;
+    font-size: @font-medium;
+
+    &:hover {
+      color: @level2;
+      opacity: 1;
+    }
+  }
+}
+
+.desc {
+  transform: rotate(180deg);
+}
+
+.tokenPair {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  & > span {
+    margin-left: 8px;
+  }
+}

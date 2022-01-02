@@ -1,0 +1,146 @@
+.header {
+  padding: 0 88px;
+
+  & > .header-body {
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    & > section {
+      &.left-region {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        & > a.logo {
+          font-size: @font-xl;
+          font-weight: bold;
+          color: #000;
+        }
+
+        & > ul {
+          margin-left: 64px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          & > li {
+            margin-right: 48px;
+
+            & > a {
+              font-size: @font-medium;
+              color: @title-color;
+
+              &:hover {
+                color: @main-color;
+                font-weight: 500;
+              }
+            }
+
+            &.active {
+              & > a {
+                color: @main-color;
+                font-weight: 500;
+              }
+            }
+          }
+        }
+      }
+
+      &.right-region {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+
+        & > button {
+          margin-right: 24px;
+        }
+
+        & > .language {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          // margin-right: 18px;
+          & > span {
+            color: @text-color;
+            font-size: @font-medium;
+
+            &.active {
+              color: @title-color;
+            }
+          }
+        }
+
+        .icon-more {
+          font-size: @font-large;
+          color: @text-color;
+          margin-left: 8px;
+          height: 32px;
+          line-height: 32px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: @screen-xs-min) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding: 0 20px;
+    background-color: #fff;
+    border-bottom: solid 1px @line-color;
+
+    & > .header-body {
+      height: 56px;
+
+      a.logo {
+        color: @level2 !important;
+      }
+
+      .menu-region {
+        & > div {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-end;
+
+          .icon-menu,
+          .icon-link {
+            font-size: @font-large;
+            color: @text-color;
+            margin-left: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.dropdown-menu {
+  min-width: 140px;
+  box-shadow: 0px 4px 20px rgba(1, 148, 63, 0.08);
+  border-radius: @border-radius-large;
+  background-color: #fff;
+  padding: 12px 0;
+
+  & > li {
+    & > a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 32px;
+      padding-left: 32px;
+      color: @level1;
+
+      &:hover {
+        background-color: @bg-min1-color;
+      }
+    }
+  }
+}

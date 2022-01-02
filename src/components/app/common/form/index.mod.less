@@ -1,0 +1,70 @@
+.form {
+  border: solid 1px @border-color;
+  border-radius: @border-radius-base;
+  padding: 20px 24px;
+
+  @media (max-width: @screen-xs-min) {
+    padding: 16px;
+  }
+
+  & > section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &:first-child {
+      justify-content: space-between;
+
+      & > div {
+        &:first-child {
+          & > span {
+            font-size: @font-base;
+            color: @level2;
+          }
+        }
+      }
+    }
+
+    &:last-child {
+      margin-top: 16px;
+      margin: 8px -16px -8px -16px;
+
+      input {
+        padding: 0;
+        font-size: @font-medium;
+        line-height: 100%;
+        font-weight: bold;
+        border-radius: 0;
+
+        &::placeholder {
+          font-weight: normal;
+        }
+      }
+
+      @media (max-width: @screen-xs-min) {
+        margin-top: 8px;
+      }
+    }
+  }
+}
+
+.error {
+  border-color: @error-color;
+}
+
+.errorText {
+  color: @error-color;
+  margin: 2px;
+}
+
+.isMe {
+  display: inline-block;
+  background: @bg-min3-color;
+  border-radius: 4px;
+  padding: 6px;
+  color: @main-color !important;
+  font-size: @font-mini;
+  line-height: 100%;
+  text-align: center;
+  align-self: flex-end;
+}

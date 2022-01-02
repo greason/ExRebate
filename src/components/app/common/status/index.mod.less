@@ -1,0 +1,39 @@
+.status {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  & > span {
+    font-size: @font-small;
+    color: @level1;
+  }
+}
+
+.confirming,
+.pending {
+  & > span {
+    color: @success-color;
+  }
+}
+
+.failed,
+.canceled {
+  & > span {
+    color: @error-color;
+  }
+}
+
+.packed,
+.submitted,
+.confirmed,
+.completed {
+  & > span {
+    color: @level1;
+  }
+}
+
+.icon {
+  position: relative;
+  top: 1px;
+  margin-right: 4px;
+}

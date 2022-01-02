@@ -1,0 +1,233 @@
+// Extra small screen / phone
+//** Deprecated `@screen-xs` as of v3.0.1
+@screen-xs: 480px;
+//** Deprecated `@screen-xs-min` as of v3.2.0
+@screen-xs-min: @screen-xs;
+//** Deprecated `@screen-phone` as of v3.0.1
+@screen-phone: @screen-xs-min;
+
+// Small screen / tablet
+//** Deprecated `@screen-sm` as of v3.0.1
+@screen-sm: 768px;
+@screen-sm-min: @screen-sm;
+//** Deprecated `@screen-tablet` as of v3.0.1
+@screen-tablet: @screen-sm-min;
+
+// Medium screen / desktop
+//** Deprecated `@screen-md` as of v3.0.1
+@screen-md: 992px;
+@screen-md-min: @screen-md;
+//** Deprecated `@screen-desktop` as of v3.0.1
+@screen-desktop: @screen-md-min;
+
+// Large screen / wide desktop
+//** Deprecated `@screen-lg` as of v3.0.1
+@screen-lg: 1200px;
+@screen-lg-min: @screen-lg;
+//** Deprecated `@screen-lg-desktop` as of v3.0.1
+@screen-lg-desktop: @screen-lg-min;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max: (@screen-sm-min - 1);
+@screen-sm-max: (@screen-md-min - 1);
+@screen-md-max: (@screen-lg-min - 1);
+
+//== Container sizes
+//
+//## Define the maximum width of `.container` for different screen sizes.
+
+@grid-gutter-width: 16px;
+// Small screen / tablet
+@container-tablet: (720px + @grid-gutter-width);
+//** For `@screen-sm-min` and up.
+@container-sm: @container-tablet;
+
+// Medium screen / desktop
+@container-desktop: (940px + @grid-gutter-width);
+//** For `@screen-md-min` and up.
+@container-md: @container-desktop;
+
+// Large screen / wide desktop
+@container-large-desktop: (1140px + @grid-gutter-width);
+//** For `@screen-lg-min` and up.
+@container-lg: @container-large-desktop;
+
+// -------- Colors -----------
+@main-color: #2eb885;
+@primary-color: @main-color;
+@info-color: #4d9aff;
+@success-color: @main-color;
+@error-color: #f44d4d;
+@warning-color: #f1ad3c;
+@white: #fff;
+@black: #000;
+
+@title-color: #242f2b;
+@heading-color: @title-color;
+@text-color: #6a7672;
+@link-color: @main-color;
+@border-color: #e6efe9;
+@disabled-color: #e8eeee;
+@bg-color: #f9fdf9;
+@card-bg: @white;
+
+/*一级色 大标题、正文*/
+@level1: #242f2b;
+
+/*二级 小标题、正文*/
+@level2: #6a7672;
+
+/*三级色 正文*/
+@level3: #a8aeac;
+
+/*四级色 辅助类提示信息*/
+@level4: #d8dbdb;
+
+/*边框色*/
+@border-color: #ececec;
+
+/*bg/大背景色*/
+@bg-large-color: #f9fdf9;
+
+/* bg/灰色 */
+@bg-grey: fade(#a8aeac, 6%);
+
+/*分割线*/
+@line-color: #f0f3f3;
+
+/*bg/小色块、 hover色*/
+@bg-min1-color: #f6fbf9;
+
+/*大边框：浏览器边框线*/
+@border-large-color: #e5efe9;
+
+/*小气泡bg*/
+@bg-min2-color: #676d7a;
+
+/*bg/头部：资金池、浏览器首页*/
+@bg-head-color: #e8fcf5;
+
+/*小标签bg*/
+@bg-min3-color: fade(#2eb885, 10%);
+
+/*提示内容bg*/
+@bg-tips-color: fade(#f9b139, 10%);
+
+/*错误提示内容bg*/
+@bg-error-color: fade(#f44d4d, 10%);
+
+/*焦点色*/
+@primary-color: #2eb885;
+
+/*焦点色hover*/
+@primary-hover-color: #1fa775;
+
+/*成功*/
+@success-color: @primary-color;
+
+/*成功hover*/
+@success-hover-color: @primary-hover-color;
+
+/*失败*/
+@error-color: #f44d4d;
+
+/*失败hover*/
+@error-hover-color: #d63636;
+
+/*提示色*/
+@warning-color: #f1ad3c;
+
+/*提示色hover*/
+@warning-hover-color: #df9c2e;
+
+/* 按钮/不可点击 */
+@disabled-color: #e8eeee;
+
+/* Font Size */
+@font-size-base: 14px;
+
+@font-mini: 11px;
+@font-small: 12/14rem;
+@font-base: 1rem;
+@font-medium: 16/14rem;
+@font-large: 18/14rem;
+@font-xl: 24/14rem;
+@font-xxl: 36/14rem;
+
+/* Border Radius */
+@border-radius-base: 12px;
+@border-radius-large: 16px;
+@border-radius-xl: 32px;
+@border-radius-small: 8px;
+@border-radius-mini: 4px;
+
+// Buttons
+@btn-font-weight: 400;
+@btn-border-radius-base: @border-radius-base;
+@btn-border-radius-sm: @border-radius-small;
+@btn-shadow: none;
+@btn-primary-shadow: none;
+@btn-text-shadow: none;
+
+@btn-font-size-lg: 18px;
+@btn-font-size-sm: 14px;
+
+@btn-default-color: @title-color;
+@btn-default-border: @title-color;
+
+@btn-height-base: 48/14rem;
+@btn-height-lg: 64/14rem;
+@btn-height-sm: 36/14rem;
+
+@btn-padding-horizontal-sm: @font-size-base;
+
+// Input
+// ---
+@input-height-base: 48px;
+@input-height-lg: 64px;
+@input-height-sm: 40px;
+@input-padding-horizontal-base: 18px;
+@input-padding-horizontal-sm: 16px;
+@input-padding-horizontal-lg: 24px;
+@input-placeholder-color: @level3;
+@input-color: @title-color;
+@input-border-color: #ececec;
+@input-disabled-bg: transparent;
+
+// Table
+// --
+@table-header-bg: #f5fbf9;
+@table-row-hover-bg: transparent;
+@table-header-color: @text-color;
+@table-border-color: transparent;
+@table-padding-horizontal: 24px;
+@table-padding-horizontal-md: (@table-padding-horizontal / 2);
+@table-padding-horizontal-sm: (@table-padding-horizontal / 2);
+@table-border-radius-base: 0;
+
+// Select
+// ---
+@dropdown-font-size: @font-medium;
+@dropdown-line-height: 56px;
+@select-border-color: @border-color;
+@select-item-selected-bg: @bg-min1-color;
+@select-single-item-height-lg: 64px;
+
+// Modal
+// --
+@modal-header-bg: #fcffff;
+@modal-header-border-width: 0;
+
+// Menu
+// ---
+@menu-item-color: @title-color;
+@menu-item-font-size: @font-large;
+@menu-item-active-bg: @white;
+
+/* Antd Reset*/
+@popover-bg: @bg-min2-color;
+@popover-color: @white;
+
+@btn-disable-color: @level2;
+@btn-disable-bg: @disabled-color;
+@btn-disable-border: @disabled-color;
