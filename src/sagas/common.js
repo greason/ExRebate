@@ -62,10 +62,5 @@ export function* request(type, url, method = "get") {
     }
 }
 
-function* requestTestAction() {
-    yield request(types.TEST_ACTION, "/swap/gain-all-tokens", "post");
-}
-
 export default function* () {
-    yield fork(requestTestAction);
 }

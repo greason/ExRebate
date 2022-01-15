@@ -2,7 +2,7 @@ import React from "react";
 import BasePureLayout from "@/common/base/layout/pure";
 import * as actions from "@/actions";
 
-export default class Find extends BasePureLayout {
+export default class Guide extends BasePureLayout {
     constructor(props) {
         super(props);
     }

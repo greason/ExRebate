@@ -13,6 +13,7 @@ export const agent = new Frisbee({
         Accept: "application/json",
         Platform: "web",
         locale: locale === "zh" ? "zh-CN" : "en_US",
+        "X-Access-Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NDIyMjMzNjYsImV4cCI6MTAwMDAwMDE2NDIyMjMzNjZ9.T7mTij9exXMFyobZAqmOD_WvCwDuGkswlb_sK2SUxPY",
     },
 });
 

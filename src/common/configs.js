@@ -3,6 +3,7 @@ let API_PREFIX;
 switch (process.env.NODE_ENV) {
     case "development":
         API_PREFIX = "";
+        API_PREFIX = "http://0.0.0.0:9242";
         break;
     case "test":
         API_PREFIX = "//test.xxx.com";
@@ -15,7 +16,7 @@ switch (process.env.NODE_ENV) {
 const configs = {
     api: `${API_PREFIX}`,
     storage: {
-        locale: "lswap-locale",
+        locale: "rebate-locale",
     },
     ret: {
         OK: 200,

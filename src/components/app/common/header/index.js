@@ -47,7 +47,7 @@ export default class Header extends BasePureComponent {
         return (
             <div className="header">
                 <div className="header-body">
-                    <section className="left-region">
+                    {/*<section className="left-region">
                         <Link to="/" className="logo">
                             {this.i18n("appName")}
                         </Link>
@@ -56,8 +56,8 @@ export default class Header extends BasePureComponent {
                                 <Link to="/guide">{this.i18n("guide")}</Link>
                             </li>
                         </ul>
-                    </section>
-                    <section className="right-region hidden-xs">
+                    </section>*/}
+                    {/*<section className="right-region hidden-xs">
                         <Dropdown
                             placement="bottomRight"
                             overlay={
@@ -73,14 +73,14 @@ export default class Header extends BasePureComponent {
                         >
                             <span className="icon-3 icon-more" />
                         </Dropdown>
-                    </section>
-                    <section className="menu-region visible-xs">
+                    </section>*/}
+                    {/*<section className="menu-region visible-xs">
                         <div>
                             <a onClick={this.onMenu} className="icon-menu">
                                 <span className={this.state.sidebar ? "icon-9" : "icon-8"} />
                             </a>
                         </div>
-                    </section>
+                    </section>*/}
                 </div>
 
             </div>

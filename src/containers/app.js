@@ -96,14 +96,14 @@ class App extends Component {
         return (
             <div>
                 {ui.loading ? <Loading /> : ""}
-                <Header
+                {/*<Header
                     intl={intl}
                     state={state}
                     actions={actions}
                     pathname={pathname}
                     onShowToast={this.onShowToast}
                     onBreak={this.onBreak}
-                />
+                />*/}
                 <div className={containerClass}>
                     <div className={contentClass}>
                         {React.cloneElement(children, {
