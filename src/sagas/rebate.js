@@ -10,7 +10,18 @@ function* requestMsgAction() {
     yield request(types.REQUEST_MSG, "api/rebate/getMsg", "get");
 }
 
+function* requestUpdateBannerAction() {
+    yield request(types.REQUEST_UPDATE_BANNER, "api/rebate/updateBanner", "post");
+}
+
+function* requestAddNewsAction() {
+    yield request(types.REQUEST_ADD_NEWS, "api/rebate/addNews", "post");
+}
+
+
 export default function* () {
     yield fork(requestBannerAction);
     yield fork(requestMsgAction);
+    yield fork(requestUpdateBannerAction);
+    yield fork(requestAddNewsAction);
 }

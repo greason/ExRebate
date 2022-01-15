@@ -12,6 +12,8 @@ export const types = {
 
     REQUEST_BANNER: "REQUEST_BANNER",
     REQUEST_MSG: "REQUEST_MSG",
+    REQUEST_UPDATE_BANNER: "REQUEST_UPDATE_BANNER",
+    REQUEST_ADD_NEWS: "REQUEST_ADD_NEWS",
 }
 
 export const showLoading = createAction(types.SHOW_LOADING);
@@ -29,6 +31,13 @@ export const requestBannerAction = createAction(
 
 export const requestMsgAction = createAction(
     types.REQUEST_MSG,
+    null,
+    (_, metaData) => {
+        return metaData;
+    }
+);
+export const requestAddNewsAction = createAction(
+    types.REQUEST_ADD_NEWS,
     null,
     (_, metaData) => {
         return metaData;

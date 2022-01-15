@@ -7,16 +7,8 @@ export default class Main extends BasePureLayout {
     constructor(props) {
         super(props);
 
-        let bannerData = [1, 2, 3, 4, 5];
-        let msgData = [
-            'BTC 下跌 20%',
-            'OKEX 上涨 10%',
-            'USDT 已恢复正常价格.',
-            'DYDX 上涨空间很大.',
-            '。。。。.',
-        ];
         this.state = {
-            bannerData, msgData,
+            bannerData: [], msgData: [],
         };
     }
 
@@ -27,8 +19,6 @@ export default class Main extends BasePureLayout {
 
     requestDidSuccess(type, data, userInfo) {
         super.requestDidSuccess(type, data);
-
-        console.log("greason requestDidSuccess", data)
 
         if (type === actions.types.REQUEST_BANNER) {
             this.setState({ bannerData: data });
