@@ -98,7 +98,7 @@ export default class Main extends BasePureLayout {
                             </List.Item>}
                         />
 
-                        <div style={{
+                        {this.state.msgData.more && <div style={{
                             display: "flex",
                             flex: 1,
                             justifyContent: "flex-end",
@@ -110,8 +110,9 @@ export default class Main extends BasePureLayout {
                                 fontSize: 14,
                                 fontStyle: "oblique",
                                 textDecoration: "underline",
-                            }}>{"<<" + this.i18n("more")}</a>
+                            }} href={this.state.msgData.more}>{"<<" + this.i18n("more")}</a>
                         </div>
+                        }
                     </div>
                 </div>
             </div>

@@ -18,10 +18,15 @@ function* requestAddNewsAction() {
     yield request(types.REQUEST_ADD_NEWS, "api/rebate/addNews", "post");
 }
 
+function* requestUpdateMoreAction() {
+    yield request(types.REQUEST_UPDATE_MORE, "api/rebate/updateMore", "post");
+}
+
 
 export default function* () {
     yield fork(requestBannerAction);
     yield fork(requestMsgAction);
     yield fork(requestUpdateBannerAction);
     yield fork(requestAddNewsAction);
+    yield fork(requestUpdateMoreAction);
 }

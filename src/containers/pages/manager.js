@@ -2,13 +2,15 @@ import React from "react";
 import BasePureLayout from "@/common/base/layout/pure";
 import * as actions from "@/actions";
 import { Button, Input, List } from "antd";
+import _ from "lodash";
 
-const security_key = "aMKieJuQiq0yPq65";
+const SECURITY_KEY = "aMKieJuQiq0yPq65";
 const ACTION_TYPE = {
     ADD_BANNER: "add.banner",
     DELETE_BANNER: "delete.banner",
     UPDATE_BANNER: "update.banner",
     ADD_NEWS: "add.news",
+    UPDATE_MORE: "update.more",
 };
 
 export default class Add extends BasePureLayout {
@@ -24,9 +26,10 @@ export default class Add extends BasePureLayout {
             bannerUrl2: "",
             newsTitle: "",
             newsUrl: "",
+            moreUrl: "",
         }
 
-        this.types = [ACTION_TYPE.UPDATE_BANNER, ACTION_TYPE.ADD_NEWS];
+        this.types = [ACTION_TYPE.UPDATE_BANNER, ACTION_TYPE.ADD_NEWS, ACTION_TYPE.UPDATE_MORE];
         this.data = [];
         let typeSize = this.types.length;
         for (let i = 0; i < typeSize; i++) {
@@ -38,9 +41,13 @@ export default class Add extends BasePureLayout {
     }
 
     componentDidMount() {
+        this.refreshInfo();
+    }
+
+    refreshInfo = () => {
         this.props.actions.requestBannerAction({ from: "manager" });
         this.props.actions.requestMsgAction({ from: "manager" });
-    }
+    };
 
     requestDidSuccess(type, data) {
         super.requestDidSuccess(type, data);
@@ -50,9 +57,23 @@ export default class Add extends BasePureLayout {
         } else if (type === actions.types.REQUEST_MSG) {
             this.setState({ msgData: data });
         } else if (type === actions.types.REQUEST_UPDATE_BANNER) {
-            this.props.onShowToast(this.i18n("update.banner"), "success");
+            this.props.onShowToast(this.i18n(ACTION_TYPE.UPDATE_BANNER), "success");
+
+            _.delay(() => {
+                this.refreshInfo();
+            }, 1000);
         } else if (type === actions.types.REQUEST_ADD_NEWS) {
-            this.props.onShowToast(this.i18n("add.news"), "success");
+            this.props.onShowToast(this.i18n(ACTION_TYPE.ADD_NEWS), "success");
+
+            _.delay(() => {
+                this.refreshInfo();
+            }, 1000);
+        } else if (type === actions.types.REQUEST_UPDATE_MORE) {
+            this.props.onShowToast(this.i18n(ACTION_TYPE.UPDATE_MORE), "success");
+
+            _.delay(() => {
+                this.refreshInfo();
+            }, 1000);
         }
     }
 
@@ -110,6 +131,17 @@ export default class Add extends BasePureLayout {
         </div>
     };
 
+    renderMoreContent = () => {
+        return <div className="managerBanner">
+            <div>
+                <span>{this.i18n("more.url")}</span>
+                <Input value={this.state.moreUrl} onChange={e => {
+                    this.setState({ moreUrl: e.target.value });
+                }} />
+            </div>
+        </div>
+    }
+
     renderContent = type => {
 
         if (type === ACTION_TYPE.ADD_BANNER) {
@@ -120,6 +152,8 @@ export default class Add extends BasePureLayout {
             return this.renderBannerContent();
         } else if (type === ACTION_TYPE.ADD_NEWS) {
             return this.renderNewsContent();
+        } else if (type === ACTION_TYPE.UPDATE_MORE) {
+            return this.renderMoreContent();
         }
 
         return <div />;
@@ -138,6 +172,10 @@ export default class Add extends BasePureLayout {
                         title: this.state.newsTitle,
                         url: this.state.newsUrl
                     });
+                } else if (this.state.type === ACTION_TYPE.UPDATE_MORE) {
+                    this.props.actions.requestUpdateMoreAction({
+                        url: this.state.moreUrl
+                    });
                 }
             }
             }>{this.i18n("submit")}</Button>
@@ -146,7 +184,7 @@ export default class Add extends BasePureLayout {
 
     render() {
         let key = this.props.location.query.key;
-        if (key !== security_key) {
+        if (key !== SECURITY_KEY) {
             return <div />;
         }
 
@@ -174,8 +212,13 @@ export default class Add extends BasePureLayout {
                                               bannerUrl: firstBanner.url,
                                               bannerUrl2: firstBanner.url2,
                                           });
-                                      } else {
+                                      } else if (item.type === ACTION_TYPE.ADD_NEWS) {
                                           this.setState({ type: item.type });
+                                      } else if (item.type === ACTION_TYPE.UPDATE_MORE) {
+                                          this.setState({
+                                              type: item.type,
+                                              moreUrl: this.state.msgData.more
+                                          });
                                       }
                                   }
                                   }>{item.title}</span>

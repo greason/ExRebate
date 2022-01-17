@@ -14,6 +14,7 @@ export const types = {
     REQUEST_MSG: "REQUEST_MSG",
     REQUEST_UPDATE_BANNER: "REQUEST_UPDATE_BANNER",
     REQUEST_ADD_NEWS: "REQUEST_ADD_NEWS",
+    REQUEST_UPDATE_MORE: "REQUEST_UPDATE_MORE",
 }
 
 export const showLoading = createAction(types.SHOW_LOADING);
@@ -38,6 +39,13 @@ export const requestMsgAction = createAction(
 );
 export const requestAddNewsAction = createAction(
     types.REQUEST_ADD_NEWS,
+    null,
+    (_, metaData) => {
+        return metaData;
+    }
+);
+export const requestUpdateMoreAction = createAction(
+    types.REQUEST_UPDATE_MORE,
     null,
     (_, metaData) => {
         return metaData;

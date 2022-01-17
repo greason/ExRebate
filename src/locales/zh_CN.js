@@ -12,6 +12,7 @@ const zh_CN = {
     "delete.banner": "删除Banner",
     "update.banner": "更新Banner",
     "add.news": "添加消息",
+    "update.more": "更新更多链接",
 
     "banner.title": "标题",
     "banner.img": "图片链接",
@@ -20,6 +21,8 @@ const zh_CN = {
 
     "news.title": "标题",
     "news.url": "内容链接",
+
+    "more.url": "更多链接",
 };
 
 export default zh_CN;
