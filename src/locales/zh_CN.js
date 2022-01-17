@@ -5,6 +5,10 @@ const zh_CN = {
     appName: "ExRebate",
     guide: "Guide",
 
+    "huobi.register": "火币交易所注册",
+    "okex.register": "欧易交易所注册",
+    "binance.register": "币安交易所注册",
+
     "latest.msg": "最新消息",
 
     "manager": "管理页面",

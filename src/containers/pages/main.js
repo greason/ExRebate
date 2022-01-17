@@ -17,11 +17,15 @@ export default class Main extends BasePureLayout {
         this.props.actions.requestMsgAction();
         // this.props.actions.requestJinseListAction({ source: "jinse" });
 
-        fetch('http://api.coindog.com/live/list')
+        fetch('http://api.coindog.com/live/list?id=0&flag=down')
             .then(response => response.json())
             .then(data => {
-                if (data.list[0]) {
-                    this.setState({ liveList: data.list[0].lives });
+                let content = data.list[0].lives;
+                if (content) {
+                    if (content.length > 5) {
+                        content = content.splice(0, 4);
+                    }
+                    this.setState({ liveList: content });
                 }
             });
 
@@ -52,6 +56,20 @@ export default class Main extends BasePureLayout {
 
         return (
             <div className="rebate" style={{ display: "flex", flex: 1, flexDirection: "column" }}>
+                <div className="keywords" style={{
+                    display: "flex", flex: 1, flexDirection: "row", paddingTop: 10, paddingBottom: 10,
+                    justifyContent: "center"
+                }}>
+                    <span><a onClick={() => {
+                        window.reload();
+                    }}>{this.i18n("huobi.register")}</a></span>
+                    <span><a onClick={() => {
+                        window.reload();
+                    }}>{this.i18n("okex.register")}</a></span>
+                    <span><a onClick={() => {
+                        window.reload();
+                    }}>{this.i18n("binance.register")}</a></span>
+                </div>
                 <Carousel autoplay style={{ width: "60%" }}>
                     {this.state.bannerData.map(item => {
                         return <div key={item.title} style={{
@@ -70,15 +88,18 @@ export default class Main extends BasePureLayout {
                                 cursor: "pointer",
                                 background: "#30536D"
                             }}>{item.title}</h3>}
-                            {item.url2 && <a target="_blank" href={item.url2} style={{
-                                display: "flex", flex: 1, justifyContent: "center",
-                                color: '#ff294e',
-                                fontSize: 16,
-                                fontWeight: "bold",
-                                textDecoration: "underline",
-                                textAlign: 'center',
-                                cursor: "pointer",
-                            }}>{item.url2}</a>}
+                            {item.backup && item.backup.map(url => {
+                                    return <a target="_blank" href={url} style={{
+                                        display: "flex", flex: 1, justifyContent: "center",
+                                        color: '#ff294e',
+                                        fontSize: 16,
+                                        fontWeight: "bold",
+                                        textDecoration: "underline",
+                                        textAlign: 'center',
+                                        cursor: "pointer",
+                                    }}>{url}</a>
+                                }
+                            )}
                         </div>
                     })}
                 </Carousel>
