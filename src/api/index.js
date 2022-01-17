@@ -17,6 +17,16 @@ export const agent = new Frisbee({
     },
 });
 
+export const agentJinse = new Frisbee({
+    baseURI: configs.jinse,
+    headers: {
+        Accept: "application/json",
+        Platform: "web",
+        locale: locale === "zh" ? "zh-CN" : "en_US"
+    },
+    mode: "cors"
+});
+
 const error = (e) => {
     let message = e.message;
     if (e instanceof TypeError && e.message === "Network request failed") {
@@ -35,10 +45,18 @@ const error = (e) => {
 
 export async function _get(path, data) {
     try {
-        const res = await agent.get(path, {
-            body: data,
-        });
-
+        let res;
+        if (data.source === "jinse") {
+            delete data.source;
+            delete data.nonce;
+            const res = await agentJinse.get(path, {
+                body: data,
+            });
+        } else {
+            res = await agent.get(path, {
+                body: data,
+            });
+        }
         if (res.ok) return res.body;
         return error(res.err);
     } catch (e) {

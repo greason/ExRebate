@@ -15,6 +15,7 @@ switch (process.env.NODE_ENV) {
 
 const configs = {
     api: `${API_PREFIX}`,
+    jinse: "http://api.coindog.com/",
     storage: {
         locale: "rebate-locale",
     },

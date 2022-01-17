@@ -8,13 +8,23 @@ export default class Main extends BasePureLayout {
         super(props);
 
         this.state = {
-            bannerData: [], msgData: [],
+            bannerData: [], msgData: [], liveList: []
         };
     }
 
     componentDidMount() {
         this.props.actions.requestBannerAction();
         this.props.actions.requestMsgAction();
+        // this.props.actions.requestJinseListAction({ source: "jinse" });
+
+        fetch('http://api.coindog.com/live/list')
+            .then(response => response.json())
+            .then(data => {
+                if (data.list[0]) {
+                    this.setState({ liveList: data.list[0].lives });
+                }
+            });
+
     }
 
     requestDidSuccess(type, data, userInfo) {
@@ -24,6 +34,8 @@ export default class Main extends BasePureLayout {
             this.setState({ bannerData: data });
         } else if (type === actions.types.REQUEST_MSG) {
             this.setState({ msgData: data });
+        } else if (type === actions.types.REQUEST_JINSE_LIST && data.list[0]) {
+            this.setState({ liveList: data.list[0].lives });
         }
     }
 
@@ -46,11 +58,11 @@ export default class Main extends BasePureLayout {
                             display: "flex",
                             flex: 1, flexDirection: "column",
                             alignItems: "center", justifyContent: "center"
-                        }} onClick={() => {
-                            window.open(item.url);
                         }}>
                             <img style={{ cursor: "pointer", alignItems: "stretch", width: "100%", height: 120 }}
-                                 src={item.img} />
+                                 src={item.img} onClick={() => {
+                                window.open(item.url);
+                            }} />
                             {item.title && <h3 style={{
                                 height: '30px',
                                 color: '#000',
@@ -77,13 +89,23 @@ export default class Main extends BasePureLayout {
                     <List
                         style={{ display: "flex", flex: 1, marginRight: 20 }}
                         size="large"
-                        header={<div>{this.i18n("latest.msg")}</div>}
+                        // header={<div>{this.i18n("latest.msg")}</div>}
+                        header={null}
                         footer={null}
                         bordered
-                        dataSource={this.state.msgData.news}
-                        renderItem={item => <List.Item>
-                            <a target="_blank" href={item.url}>{item.title}</a>
-                        </List.Item>}
+                        dataSource={this.state.liveList}
+                        renderItem={item => {
+                            let content = item.content;
+                            let items = content.split("】");
+                            items[0] = items[0].split("【")[1].trim();
+                            items[1] = items[1].trim();
+                            return <List.Item style={{ display: "flex", flex: 1, flexDirection: "column" }}>
+                                <span style={{ fontSize: 16, color: "black" }}>{items[0]}</span>
+                                {item.url ?
+                                    <a target="_blank" href={item.url}>{items[1]}</a> :
+                                    <span>{items[1]}</span>}
+                            </List.Item>
+                        }}
                     />
 
                     <div style={{ display: "flex", flex: 1, flexDirection: "column" }}>

@@ -15,6 +15,8 @@ export const types = {
     REQUEST_UPDATE_BANNER: "REQUEST_UPDATE_BANNER",
     REQUEST_ADD_NEWS: "REQUEST_ADD_NEWS",
     REQUEST_UPDATE_MORE: "REQUEST_UPDATE_MORE",
+
+    REQUEST_JINSE_LIST: "REQUEST_JINSE_LIST",
 }
 
 export const showLoading = createAction(types.SHOW_LOADING);
@@ -46,6 +48,13 @@ export const requestAddNewsAction = createAction(
 );
 export const requestUpdateMoreAction = createAction(
     types.REQUEST_UPDATE_MORE,
+    null,
+    (_, metaData) => {
+        return metaData;
+    }
+);
+export const requestJinseListAction = createAction(
+    types.REQUEST_JINSE_LIST,
     null,
     (_, metaData) => {
         return metaData;

@@ -22,6 +22,10 @@ function* requestUpdateMoreAction() {
     yield request(types.REQUEST_UPDATE_MORE, "api/rebate/updateMore", "post");
 }
 
+function* requestJinseListAction() {
+    yield request(types.REQUEST_JINSE_LIST, "live/list", "get");
+}
+
 
 export default function* () {
     yield fork(requestBannerAction);
@@ -29,4 +33,5 @@ export default function* () {
     yield fork(requestUpdateBannerAction);
     yield fork(requestAddNewsAction);
     yield fork(requestUpdateMoreAction);
+    yield fork(requestJinseListAction);
 }
