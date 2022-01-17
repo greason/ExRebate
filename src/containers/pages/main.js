@@ -39,7 +39,7 @@ export default class Main extends BasePureLayout {
         } = this.props;
 
         return (
-            <div className="rebate" style={{ display: "flex", flex: 1, flexDirection: "column", }}>
+            <div className="rebate" style={{ display: "flex", flex: 1, flexDirection: "column" }}>
                 <Carousel autoplay style={{ width: "60%" }}>
                     {this.state.bannerData.map(item => {
                         return <div key={item.title} style={{
