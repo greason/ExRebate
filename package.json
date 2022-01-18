@@ -12,9 +12,9 @@
     "ExRebate"
   ],
   "scripts": {
-    "dev": "webpack-dev-server --mode development --host 0.0.0.0 --port=8081",
-    "test": "webpack --mode production --config config/webpack.test.config.js",
-    "build": "webpack --mode production --config config/webpack.build.config.js"
+    "start": "webpack-dev-server --mode development --host 0.0.0.0 --port=8081",
+    "test": "webpack --mode production --config webpack.test.config.js",
+    "build": "webpack --mode production --config webpack.prod.config.js"
   },
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
