@@ -114,13 +114,13 @@ class App extends Component {
                         })}
                     </div>
                 </div>
-                <Footer
+                {/*<Footer
                     intl={intl}
                     state={state}
                     actions={actions}
                     pathname={pathname}
                     onShowToast={this.onShowToast}
-                />
+                />*/}
                 <Toast ref="toast" />
 
 

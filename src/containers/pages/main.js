@@ -23,7 +23,7 @@ export default class Main extends BasePureLayout {
                 let content = data.list[0].lives;
                 if (content) {
                     if (content.length > 5) {
-                        content = content.splice(0, 4);
+                        content = content.splice(0, 5);
                     }
                     this.setState({ liveList: content });
                 }
