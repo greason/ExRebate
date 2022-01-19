@@ -6,10 +6,10 @@ switch (process.env.NODE_ENV) {
         API_PREFIX = "http://0.0.0.0:9242";
         break;
     case "test":
-        API_PREFIX = "//test.xxx.com";
+        API_PREFIX = "http://0.0.0.0:9242";
         break;
     case "production":
-        API_PREFIX = "//prod.xxx.com";
+        API_PREFIX = "http://0.0.0.0:9242";
         break;
 }
 

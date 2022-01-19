@@ -10,7 +10,7 @@ const lessModuleRegex = /\.mod\.less$/;
 
 module.exports = {
     entry: {
-        main: ["babel-polyfill", path.resolve(SRC_PATH, "index")],
+        main: ["babel-polyfill", path.resolve(SRC_PATH, "app")],
     },
     output: {
         path: DIST_PATH,
