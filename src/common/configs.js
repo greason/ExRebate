@@ -2,14 +2,14 @@ let API_PREFIX;
 
 switch (process.env.NODE_ENV) {
     case "development":
-        API_PREFIX = "";
         API_PREFIX = "http://0.0.0.0:9242";
+        // API_PREFIX = "http://exrebateserver.eba-jre2e3sv.us-east-1.elasticbeanstalk.com/";
         break;
     case "test":
         API_PREFIX = "http://0.0.0.0:9242";
         break;
     case "production":
-        API_PREFIX = "http://0.0.0.0:9242";
+        API_PREFIX = "http://exrebateserver.eba-jre2e3sv.us-east-1.elasticbeanstalk.com/";
         break;
 }
 
