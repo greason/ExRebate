@@ -6,11 +6,15 @@
   "main": "./main.prod.js",
   "author": "Greason",
   "license": "MIT",
+  "private": true,
   "keywords": [
     "Exchange",
     "Rebate",
     "ExRebate"
   ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "scripts": {
     "start": "webpack-dev-server --mode development --host 0.0.0.0 --port=8082",
     "test": "webpack --mode production --config webpack.test.config.js",
@@ -38,6 +42,7 @@
     "lodash": "^4.17.21",
     "mockjs": "^1.1.0",
     "moment": "^2.29.1",
+    "node": "^14.17.1",
     "qrcode.react": "^1.0.1",
     "react": "^17.0.1",
     "react-dev-utils": "^11.0.4",

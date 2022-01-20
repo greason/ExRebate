@@ -32,3 +32,4 @@ amplifytools.xcconfig
 /dist.zip
 /serverless.yml
 /src/models/
+/exRebate.zip
