@@ -1,4 +1,3 @@
-import configmIcon from "@/assets/images/icon-confirm-lg.png";
 import BasePureComponent from "@/common/base/component/pure";
 import className from "@/common/classname";
 import { Modal } from "antd";
@@ -17,7 +16,6 @@ export default class Confirm extends BasePureComponent {
 
         return (
             <div className={styles.content}>
-                <img src={configmIcon} />
                 <div>
                     <h4>确认中...</h4>
                     <p>{desc}</p>

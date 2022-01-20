@@ -1,6 +1,3 @@
-import iconExchangeActive from "@/assets/images/tab/icon-exchange-o.png";
-import iconExchange from "@/assets/images/tab/icon-exchange.png";
-import iconHome from "@/assets/images/tab/icon-home.png";
 import BasePureComponent from "@/common/base/component/pure";
 import className from "@/common/classname";
 import _ from "lodash";
@@ -31,17 +28,17 @@ export default class Footer extends BasePureComponent {
                 <ul className={styles.footer}>
                     <li className={classname`${this.getActive("app")}`}>
                         <a>
-                            <img src={iconHome} />
+                            {/*<img src={iconHome} />*/}
                             <span>{this.i18n("appName")}</span>
                         </a>
                     </li>
                     <li className={classname`${this.getActive("guide")}`}>
                         <Link to="/guide">
-                            <img
+                            {/*<img
                                 src={
                                     this.getActive("guide") ? iconExchangeActive : iconExchange
                                 }
-                            />
+                            />*/}
                             <span>{this.i18n("guide")}</span>
                         </Link>
                     </li>
