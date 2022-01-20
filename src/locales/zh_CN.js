@@ -27,6 +27,8 @@ const zh_CN = {
     "news.url": "内容链接",
 
     "more.url": "更多链接",
+
+    "buy": "买币",
 };
 
 export default zh_CN;

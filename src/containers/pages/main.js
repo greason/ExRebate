@@ -97,7 +97,7 @@ export default class Main extends BasePureLayout {
                                         textDecoration: "underline",
                                         textAlign: 'center',
                                         cursor: "pointer",
-                                    }}>{url}</a>
+                                    }}>{this.i18n("buy")}</a>
                                 }
                             )}
                         </div>
